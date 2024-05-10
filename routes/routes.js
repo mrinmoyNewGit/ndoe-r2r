@@ -4,12 +4,14 @@ const decryption = require("../middlewares/decryption")
 const encryption = require("../middlewares/encryption")
 
 const tripController = require('../controllers/trip.controller');
+const hotelController = require('../controllers/hotel.controller');
 const routeDataValidateSchema = require('../validations/route.validation')
 
 
 // router.use('/trip-planner', encryption, decryption, require("./trip.routes"));
 // router.use('/trip-planner', require("./trip.routes"));
 router.post('/trip-planner/routes', routeDataValidateSchema, tripController.combineRouteList);
+router.post('/hotel/get-details',hotelController.getHotelDetails);
 // router.post('/trip-planner/routes',encryption,decryption, routeDataValidateSchema, tripController.combineRouteList);
 // router.post('/trip-planner/routes', encryption, decryption, tripController.combineRouteList);
 
